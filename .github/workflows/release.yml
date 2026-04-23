@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write  # required to create GitHub Releases
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491  # v5.0.0
+        with:
+          go-version: "1.23"
+          cache: true
+      - name: Verify build before tagging release
+        run: |
+          go vet ./...
+          go build ./...
+          go test ./... -count=1
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@9d7c94cfd0a1f3ed45544c887983e9fa900f0564  # v2.0.4
+        with:
+          generate_release_notes: true
+          prerelease: ${{ contains(github.ref_name, '-alpha') || contains(github.ref_name, '-beta') || contains(github.ref_name, '-rc') }}
+          body: |
+            Go module: `go get github.com/redpanda321/claude-code-sdk-go@${{ github.ref_name }}`
+
+            See [CHANGELOG.md](./CHANGELOG.md) for full release notes.
+
+            ---
+            Indexed automatically on [pkg.go.dev](https://pkg.go.dev/github.com/redpanda321/claude-code-sdk-go) within minutes of the first `go get`.
