@@ -5,6 +5,7 @@ import (
 	"iter"
 
 	"github.com/invopop/jsonschema"
+
 	"github.com/redpanda321/claude-code-sdk-go/pkg/tools"
 )
 
