@@ -61,7 +61,7 @@ func (EchoTool) RenderResultForAssistant(o EchoOut) string { return o.Echoed }
 
 func (EchoTool) Call(_ tools.ToolContext, in EchoIn) iter.Seq2[tools.ToolCallProgress[EchoProgress], *tools.ToolResult[EchoOut]] {
     return func(yield func(tools.ToolCallProgress[EchoProgress], *tools.ToolResult[EchoOut]) bool) {
-        yield(tools.ToolCallProgress[EchoProgress]{}, &tools.ToolResult[EchoOut]{Data: EchoOut{Echoed: in.Message}})
+        yield(tools.ToolCallProgress[EchoProgress]{}, &tools.ToolResult[EchoOut]{Output: EchoOut{Echoed: in.Message}})
     }
 }
 ```
