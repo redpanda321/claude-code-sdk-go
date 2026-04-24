@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-alpha.2] - 2026-04-24
+
+### Fixed
+- README quickstart now matches the exported `ToolResult` API (`Output`, not `Data`).
+- Added a compile-checked README-equivalent example under `pkg/tools/example_test.go` to prevent future doc drift.
+- Formatted `pkg/tools/doc.go` so the published branch state passes `gofmt` / `golangci-lint`.
+
 ## [0.1.0-alpha.1] - 2026-04-23
 
 ### Added
@@ -31,5 +38,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Public API is **unstable** during alpha. Stability targeted for `v1.0.0`.
 - 11 of 13 `pkg/*` packages are doc-only barrels — see [ROADMAP.md](./ROADMAP.md).
 
-[Unreleased]: https://github.com/redpanda321/claude-code-sdk-go/compare/v0.1.0-alpha.1...HEAD
+[Unreleased]: https://github.com/redpanda321/claude-code-sdk-go/compare/v0.1.0-alpha.2...HEAD
+[0.1.0-alpha.2]: https://github.com/redpanda321/claude-code-sdk-go/releases/tag/v0.1.0-alpha.2
 [0.1.0-alpha.1]: https://github.com/redpanda321/claude-code-sdk-go/releases/tag/v0.1.0-alpha.1

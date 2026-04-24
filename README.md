@@ -12,7 +12,7 @@ Claude Code CLI repackaged as a library-first agent toolkit. Sibling of
 
 ## Status
 
-**Alpha.** Public API is unstable until `v1.0.0`. In `v0.1.0-alpha.1` only `pkg/tools` and
+**Alpha.** Public API is unstable until `v1.0.0`. In the `v0.1.0` alpha line only `pkg/tools` and
 `pkg/adapters` are populated; the remaining 11 `pkg/*` packages ship as doc-only barrels
 with carve-in plans. See [ROADMAP.md](./ROADMAP.md).
 
